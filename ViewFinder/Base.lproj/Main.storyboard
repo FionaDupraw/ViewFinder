@@ -37,7 +37,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="3Pb-vg-5t1"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="g1K-b6-LTs">
                             <connections>
-                                <segue destination="9ee-jP-Ucj" kind="show" id="laO-mH-FNR"/>
+                                <segue destination="9ee-jP-Ucj" kind="show" id="76H-JJ-LXg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -49,7 +49,7 @@
         <!--Add Photos-->
         <scene sceneID="I6E-eD-wQe">
             <objects>
-                <viewController id="9ee-jP-Ucj" sceneMemberID="viewController">
+                <viewController id="9ee-jP-Ucj" customClass="AddPhotoViewController" customModule="ViewFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RIW-ao-kAX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,11 +67,17 @@
                                 <rect key="frame" x="68" y="578" width="85" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Take Picture"/>
+                                <connections>
+                                    <action selector="takePicture:" destination="9ee-jP-Ucj" eventType="touchUpInside" id="vok-RD-Ydm"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8E-1e-H3v">
                                 <rect key="frame" x="258" y="578" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Photo Library"/>
+                                <connections>
+                                    <action selector="photoLibrary:" destination="9ee-jP-Ucj" eventType="touchUpInside" id="k46-Z5-bLE"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AUf-6j-tcA">
                                 <rect key="frame" x="159" y="403" width="97" height="30"/>
@@ -92,6 +98,9 @@
                         <viewLayoutGuide key="safeArea" id="iCY-Vw-d1f"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Photos" id="x8K-z0-3EE"/>
+                    <connections>
+                        <outlet property="newImage" destination="z3q-1t-TPe" id="xDm-9O-0Jw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m5f-wK-jMm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
