@@ -55,5 +55,10 @@ class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate,
         
         imagePicker.dismiss(animated: true, completion: nil)
     }
-
+    
+    
+    @IBAction func savePhotoTapped(_ sender: UIButton) {
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+    }
+    
 }

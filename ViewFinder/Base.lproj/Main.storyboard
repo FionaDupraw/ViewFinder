@@ -13,7 +13,7 @@
         <!--View Finder-->
         <scene sceneID="d4d-Cm-O6D">
             <objects>
-                <tableViewController id="M78-8f-nIW" sceneMemberID="viewController">
+                <tableViewController id="M78-8f-nIW" customClass="PhotoTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="E12-Ic-5FY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -62,6 +62,9 @@
                                 <rect key="frame" x="190" y="453" width="34" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="savePhotoTapped:" destination="9ee-jP-Ucj" eventType="touchUpInside" id="gEE-8m-ZVp"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IzO-Oa-hAb">
                                 <rect key="frame" x="68" y="578" width="85" height="30"/>
