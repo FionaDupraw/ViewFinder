@@ -74,14 +74,6 @@
                                     <action selector="takePicture:" destination="9ee-jP-Ucj" eventType="touchUpInside" id="vok-RD-Ydm"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8E-1e-H3v">
-                                <rect key="frame" x="258" y="578" width="92" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Photo Library"/>
-                                <connections>
-                                    <action selector="photoLibrary:" destination="9ee-jP-Ucj" eventType="touchUpInside" id="k46-Z5-bLE"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AUf-6j-tcA">
                                 <rect key="frame" x="159" y="403" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -96,13 +88,31 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8E-1e-H3v">
+                                <rect key="frame" x="174" y="578" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Photo Library"/>
+                                <connections>
+                                    <action selector="photoLibrary:" destination="9ee-jP-Ucj" eventType="touchUpInside" id="k46-Z5-bLE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LXN-EP-xyr">
+                                <rect key="frame" x="299" y="578" width="44" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Album"/>
+                                <connections>
+                                    <action selector="photoAlbum:" destination="9ee-jP-Ucj" eventType="touchUpInside" id="H5Y-EO-lIZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="iCY-Vw-d1f"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Photos" id="x8K-z0-3EE"/>
                     <connections>
+                        <outlet property="captionText" destination="AUf-6j-tcA" id="lev-OG-Afa"/>
                         <outlet property="newImage" destination="z3q-1t-TPe" id="xDm-9O-0Jw"/>
+                        <outlet property="newImageView" destination="z3q-1t-TPe" id="ufo-Q3-LZS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m5f-wK-jMm" userLabel="First Responder" sceneMemberID="firstResponder"/>

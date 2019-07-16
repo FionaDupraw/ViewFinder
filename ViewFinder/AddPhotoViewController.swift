@@ -22,11 +22,21 @@ class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
    
+    @IBOutlet weak var captionText: UITextField!
+    @IBAction func photoAlbum(_ sender: Any) {
+        imagePicker.sourceType = .photoLibrary
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+   
+    @IBOutlet weak var newImageView: UIImageView!
     
   
     @IBAction func takePicture(_ sender: Any) {
     
     
+        
+        
         imagePicker.sourceType = .camera
         //this allows me to open my camera
 
@@ -59,6 +69,43 @@ class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate,
     
     @IBAction func savePhotoTapped(_ sender: UIButton) {
         if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+            
+            let photoToSave = Photos(entity: Photos.entity(), insertInto: context)
+            photoToSave.caption = captionText.text
+            
+            if let userImage = newImageView.image {
+                if let userImageData = userImage.pngData() {
+                    photoToSave.imageData = userImageData
+                }
+            }
     }
+        
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext{
+            let photoToSave = Photos(entity: Photos.entity(), insertInto: context)
+            
+            photoToSave.caption = captionText.text
+            if let userImage = newImageView.image {
+                if let userImageData = userImage.pngData() {
+                    photoToSave.imageData = userImageData
+                }
+            }
+            (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+        }
     
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext{
+            let photoToSave = Photos(entity: Photos.entity(), insertInto: context)
+            
+            photoToSave.caption = captionText.text
+            
+            if let userImage = newImageView.image {
+                if let userImageData = userImage.pngData(){
+                    photoToSave.imageData = userImageData
+                }
+                
+                (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+                
+                navigationController?.popViewController(animated: true)
+            }
+        }
+}
 }

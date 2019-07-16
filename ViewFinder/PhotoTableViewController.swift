@@ -10,6 +10,8 @@ import UIKit
 
 class PhotoTableViewController: UITableViewController {
 
+    var photos : [Photos] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,25 +21,44 @@ class PhotoTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    func getPhotos() {
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext{
+            //now we need to search through Core Data to find out photos/captions
+            if let coreDataPhotos = try? context.fetch(Photos.fetchRequest()) as? [Photos]{
 
+                    photos = coreDataPhotos
+                    tableView.reloadData()
+    
+            }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool){
+        getPhotos()
+    }
     // MARK: - Table view data source
 
-    }
-
-func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 15
+        return photos.count
     }
-
-
-func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = UITableViewCell()
-        cell.textLabel?.text = "Hi there!"
-        cell.imageView?.image = UIImage(named: "doggo")
-//         Configure the cell...
-
-        return cell
-}
+    
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        let cellPhoto = photos[indexPath.row]
+        cell.textLabel?.text = cellPhoto.caption
+        if let cellPhotoImageData = cellPhoto.imageData {
+            if let cellPhotoImage = UIImage(data: cellPhotoImageData){
+                cell.imageView?.image = cellPhotoImage
+            }
+        }
+        //         Configure the cell...
+            return cell
+    }
+    
+    }
 
 
     /*
